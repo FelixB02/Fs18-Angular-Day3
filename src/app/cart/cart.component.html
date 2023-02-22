@@ -1,0 +1,21 @@
+<div style="background-color: cornsilk; min-height: 90vh;">
+    <div class="row row-cols-3">
+        <div *ngFor="let item of items; index as index" style="display: flex; justify-content: center;">
+            <div style="border: 1px solid black; background-color: white; margin: 2rem; width: 22rem; text-align: center; display: grid; grid-template-columns: 2fr 3fr;">
+                <div>
+                    <img style="width: 100%; height: 100%;" src="{{item.picture}}" alt="">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <h5> {{item.name}}</h5>
+                    <p> Price: {{item.price}}</p>
+                    <p> Description: {{item.description}}</p>
+                    <p> Amount: {{item.counter}}</p>
+                    <div>
+                        <!-- <button (click)="addtoCart()" class="btn btn-success m-2">+</button> -->
+                        <!-- <button (click)="addtoCart()" class="btn btn-danger m-2">-</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
