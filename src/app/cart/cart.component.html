@@ -1,6 +1,6 @@
-<div style="background-color: cornsilk; min-height: 90vh;">
-    <div class="row row-cols-3 bs-gutter-x: 0rem;">
-        <div *ngFor="let item of items; index as index" style="display: flex; justify-content: center;">
+<div style="background-color: cornsilk; min-height: 90vh; display: flex; flex-direction: column; align-items: center;">
+    <div class="row row-cols-3 w-100" style="--bs-gutter-x: 0;">
+        <div *ngFor="let item of items; index as i" style="display: flex; justify-content: center;">
             <div style="border: 1px solid black; background-color: white; margin: 2rem; width: 22rem; text-align: center; display: grid; grid-template-columns: 3fr 2fr;">
                 <div>
                     <img style="width: 100%; height: 100%;" src="{{item.picture}}" alt="">
@@ -11,11 +11,17 @@
                     <p> Description: {{item.description}}</p>
                     <p> Amount: {{item.counter}}</p>
                     <div>
-                        <!-- <button (click)="addtoCart()" class="btn btn-success m-2">+</button> -->
-                        <!-- <button (click)="addtoCart()" class="btn btn-danger m-2">-</button> -->
+                        <button (click)="addQuantity(i)" class="btn btn-success m-2">+</button>
+                        <button (click)="remQuantity(i)" class="btn btn-danger m-2">-</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="price > 0" style="display: flex; flex-direction: column; align-items: center; padding: 1vh; background-color: white; width: 50%; border: 1px solid black">
+        <h5> Your total price: {{price}}</h5>
+        <h5 *ngIf="price >= 10000 && price < 20000"> You got a 10% discount: {{price * 0.9}}</h5>
+        <h5 *ngIf="price >= 20000"> You got a 20% discount: {{price * 0.8}}</h5>
+        <button (click)="clearCart()" class="btn btn-danger">Clear Cart</button>
     </div>
 </div>
